@@ -43,7 +43,7 @@
       }
       stream.getTracks().forEach(track => pc.addTrack(track, stream))
 
-      let ws = new WebSocket("ws://poc-pion-webrtc.herokuapp.com/websocket")
+      let ws = new WebSocket("wss://poc-pion-webrtc.herokuapp.com/websocket")
       pc.onicecandidate = e => {
         if (!e.candidate) {
           return
