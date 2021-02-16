@@ -17,7 +17,6 @@ import (
 )
 
 var (
-	addr     = flag.String("addr", ":8080", "http service address")
 	upgrader = websocket.Upgrader{
 		CheckOrigin: func(r *http.Request) bool { return true },
 	}
@@ -62,7 +61,7 @@ func main() {
 
 	// index.html handler
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		if err := indexTemplate.Execute(w, "ws://"+r.Host+"/websocket"); err != nil {
+		if err := indexTemplate.Execute(w, "ws://poc-pion-webrtc.herokuapp.com/websocket"); err != nil {
 			log.Fatal(err)
 		}
 	})
