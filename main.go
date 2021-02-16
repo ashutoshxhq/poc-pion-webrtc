@@ -61,7 +61,7 @@ func main() {
 
 	// index.html handler
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		if err := indexTemplate.Execute(w, "wss://poc-pion-webrtc.herokuapp.com/websocket"); err != nil {
+		if err := indexTemplate.Execute(w, "wss://"+r.Host+"/websocket"); err != nil {
 			log.Fatal(err)
 		}
 	})
